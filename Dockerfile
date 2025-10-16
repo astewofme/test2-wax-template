@@ -5,13 +5,13 @@ LABEL maintainer="Andrew Woods <awoods01@gmail.com>"
 # Install apt dependencies
 RUN apt-get update -y
 RUN apt-get install -y --no-install-recommends \
-                       build-essential \
-                       software-properties-common \
-                       git \
-                       ghostscript \
-                       imagemagick \
-                       libvips \
-                       locales \
+    build-essential \
+    software-properties-common \
+    git \
+    ghostscript \
+    imagemagick \
+    libvips \
+    locales \
     && rm -rf /var/lib/apt/lists/*
 
 # Add imagemagick PDF fix
