@@ -1,6 +1,6 @@
-FROM ruby:2.7.2
+FROM ruby:3.1.0
 
-MAINTAINER Andrew Woods <awoods01@gmail.com>
+LABEL maintainer="Andrew Woods <awoods01@gmail.com>"
 
 # Install apt dependencies
 RUN apt-get update -y
@@ -19,7 +19,7 @@ RUN sed -i '/disable ghostscript format types/,+6d' /etc/ImageMagick-6/policy.xm
 
 # Set up locales
 RUN localedef -i en_US -c -f UTF-8 -A /usr/share/locale/locale.alias en_US.UTF-8
-ENV LANG en_US.utf8
+ENV LANG=en_US.utf8
 
 RUN mkdir /wax
 COPY Gemfile* *.gemspec /wax/

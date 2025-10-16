@@ -17,11 +17,11 @@
 # Feel free to change these! For more info, refer to:
 # ~> https://jekyllrb.com/docs/configuration/options/
 
-title:            'Wax'
-description:      'Minimal Exhibitions with Jekyll'
-url:              'https://minicomp.github.io'
-baseurl:          '/wax'
-copyright:        'Example copyright org, 2023'
+title:            'Portugal'
+description:      'Historical Manuscripts from 17th Century Portugal'
+url:              'https://your-site.com'
+baseurl:          ''
+copyright:        'Portuguese National Archives, 2024'
 logo:             '/assets/logo.png'
 default_thumb:    '/assets/default.png'
 
@@ -59,13 +59,13 @@ kramdown:
 collections:
   exhibits:
     output: true
-  qatar: # name of collection
+  portugal: # name of collection
     output: true # makes sure pages are output as html files
-    layout: 'qatar_item' # the layout for the pages to use
+    layout: 'portugal_item' # the layout for the pages to use
     metadata:
-      source: 'qatar.csv' # path to the metadata file within `_data`
+      source: 'portugal.csv' # path to the metadata file within `_data`
     images:
-      source: 'raw_images/qatar' # path to the directory of images within `_data`
+      source: 'raw_images/portugal' # path to the directory of images within `_data`
 
 # --------------------------------------------------------------
 # SEARCH INDEX SETTINGS
@@ -79,15 +79,16 @@ search:
   main:
     index: '/search/index.json' # file the index will get written to
     collections:
-      qatar:
+      portugal:
         content: false # whether or not to index page content
         fields: # the metadata fields to index
-          - artist
+          - record_type
           - location
           - label
           - _date
           - object_type
           - current_location
+          - collection_name
 
 # --------------------------------------------------------------
 # SITE MENU SETTINGS
@@ -99,18 +100,18 @@ search:
 menu:
   - label: 'About'
     sub:
-      - label: 'Wax'
+      - label: 'About This Collection'
         link: '/about/'
-      - label: 'Documentation'
-        link: 'https://minicomp.github.io/wiki/wax/'
+      - label: 'Historical Context'
+        link: '/historical-context/'
       - label: 'Credits'
         link: '/credits/'
   - label: 'Exhibits'
     sub:
-      - label: 'Inline Parallax Image'
-        link: '/exhibits/a/'
-      - label: 'Inline Image References'
-        link: '/exhibits/b/'
+      - label: 'Marriage Records Overview'
+        link: '/exhibits/marriage-overview/'
+      - label: 'Document Analysis'
+        link: '/exhibits/document-analysis/'
   - label: 'Browse'
     link: '/collection/'
   - label: 'Search'
@@ -125,12 +126,12 @@ menu:
 
 footer:
   links:
-    - label: 'GitHub'
-      link: 'https://github.com/minicomp/wax'
+    - label: 'Torre do Tombo'
+      link: 'https://antt.dglab.gov.pt/'
     - label: 'Credits'
       link: '/credits'
-    - label: 'Wiki'
-      link: 'https://minicomp.github.io/wiki/wax/'
+    - label: 'Portuguese National Archives'
+      link: 'https://antt.dglab.gov.pt/'
   logos:
     - img: '/img/logo.png'
 

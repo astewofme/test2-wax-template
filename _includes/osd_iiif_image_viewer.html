@@ -4,14 +4,24 @@
 <script>
   $(document).ready(function () {
     var manifestUrl = "{{ include.manifest | absolute_url }}";
+    console.log('Loading manifest from:', manifestUrl);
+    
     $.getJSON(manifestUrl, function(data) {
+      console.log('Manifest loaded:', data);
       var tileSources = [];
       $.each(data.sequences[0].canvases, function(_k, val) {
+        var tileSource = val.images[0].resource.service['@id'] + '/info.json';
+        var thumbnailUrl = val.thumbnail['@id'];
+        console.log('Tile source:', tileSource);
+        console.log('Thumbnail URL:', thumbnailUrl);
+        
         tileSources.push({
-          tileSource: val.images[0].resource.service['@id'] + '/info.json',
-          referenceStripThumbnailUrl: val.thumbnail
+          tileSource: tileSource,
+          referenceStripThumbnailUrl: thumbnailUrl
         });
       });
+      
+      console.log('Initializing OpenSeadragon with tile sources:', tileSources);
       OpenSeadragon({
         id: "osd",
         preload: true,
@@ -19,7 +29,14 @@
         prefixUrl: "{{ '/assets/openseadragon/images/' | absolute_url }}",
         tileSources: tileSources,
         showReferenceStrip: true,
+        showFullPageControl: true,
+        showHomeControl: true,
+        showZoomControl: true,
+        showRotationControl: true,
+        debugMode: false
       });
+    }).fail(function(jqxhr, textStatus, error) {
+      console.error('Failed to load manifest:', textStatus, error);
     });
   });
 </script>

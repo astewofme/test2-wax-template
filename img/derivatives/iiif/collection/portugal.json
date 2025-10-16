@@ -1,0 +1,86 @@
+---
+layout: none
+---
+{
+  "@context": "http://iiif.io/api/presentation/2/context.json",
+  "@id": "{{ '/' | absolute_url }}img/derivatives/iiif/collection/portugal.json",
+  "@type": "sc:Collection",
+  "label": "portugal",
+  "manifests": [
+    {
+      "@id": "{{ '/' | absolute_url }}img/derivatives/iiif/PT-TT-CEL-002-544-1_m0001/manifest.json",
+      "@type": "sc:Manifest",
+      "label": "PT-TT-CEL-002-544-1_m0001"
+    },
+    {
+      "@id": "{{ '/' | absolute_url }}img/derivatives/iiif/PT-TT-CEL-002-544-1_m0002/manifest.json",
+      "@type": "sc:Manifest",
+      "label": "PT-TT-CEL-002-544-1_m0002"
+    },
+    {
+      "@id": "{{ '/' | absolute_url }}img/derivatives/iiif/PT-TT-CEL-002-544-1_m0003/manifest.json",
+      "@type": "sc:Manifest",
+      "label": "PT-TT-CEL-002-544-1_m0003"
+    },
+    {
+      "@id": "{{ '/' | absolute_url }}img/derivatives/iiif/PT-TT-CEL-002-544-1_m0004/manifest.json",
+      "@type": "sc:Manifest",
+      "label": "PT-TT-CEL-002-544-1_m0004"
+    },
+    {
+      "@id": "{{ '/' | absolute_url }}img/derivatives/iiif/PT-TT-CEL-002-544-1_m0005/manifest.json",
+      "@type": "sc:Manifest",
+      "label": "PT-TT-CEL-002-544-1_m0005"
+    },
+    {
+      "@id": "{{ '/' | absolute_url }}img/derivatives/iiif/PT-TT-CEL-002-544-1_m0006/manifest.json",
+      "@type": "sc:Manifest",
+      "label": "PT-TT-CEL-002-544-1_m0006"
+    },
+    {
+      "@id": "{{ '/' | absolute_url }}img/derivatives/iiif/PT-TT-CEL-002-544-5_m0001/manifest.json",
+      "@type": "sc:Manifest",
+      "label": "PT-TT-CEL-002-544-5_m0001"
+    },
+    {
+      "@id": "{{ '/' | absolute_url }}img/derivatives/iiif/PT-TT-CEL-002-544-5_m0002/manifest.json",
+      "@type": "sc:Manifest",
+      "label": "PT-TT-CEL-002-544-5_m0002"
+    },
+    {
+      "@id": "{{ '/' | absolute_url }}img/derivatives/iiif/PT-TT-CEL-002-544-5_m0003/manifest.json",
+      "@type": "sc:Manifest",
+      "label": "PT-TT-CEL-002-544-5_m0003"
+    },
+    {
+      "@id": "{{ '/' | absolute_url }}img/derivatives/iiif/PT-TT-CEL-002-544-5_m0004/manifest.json",
+      "@type": "sc:Manifest",
+      "label": "PT-TT-CEL-002-544-5_m0004"
+    },
+    {
+      "@id": "{{ '/' | absolute_url }}img/derivatives/iiif/PT-TT-CEL-002-544-5_m0005/manifest.json",
+      "@type": "sc:Manifest",
+      "label": "PT-TT-CEL-002-544-5_m0005"
+    },
+    {
+      "@id": "{{ '/' | absolute_url }}img/derivatives/iiif/PT-TT-CEL-002-544-5_m0006/manifest.json",
+      "@type": "sc:Manifest",
+      "label": "PT-TT-CEL-002-544-5_m0006"
+    },
+    {
+      "@id": "{{ '/' | absolute_url }}img/derivatives/iiif/PT-TT-CEL-002-544-5_m0007/manifest.json",
+      "@type": "sc:Manifest",
+      "label": "PT-TT-CEL-002-544-5_m0007"
+    },
+    {
+      "@id": "{{ '/' | absolute_url }}img/derivatives/iiif/PT-TT-CEL-002-544-5_m0008/manifest.json",
+      "@type": "sc:Manifest",
+      "label": "PT-TT-CEL-002-544-5_m0008"
+    },
+    {
+      "@id": "{{ '/' | absolute_url }}img/derivatives/iiif/PT-TT-CEL-002-544-5_m0009/manifest.json",
+      "@type": "sc:Manifest",
+      "label": "PT-TT-CEL-002-544-5_m0009"
+    }
+  ]
+}

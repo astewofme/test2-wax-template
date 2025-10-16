@@ -2,18 +2,57 @@
 layout: page
 show_title: false
 banner:
-  collection: qatar
-  pid: obj10
+  collection: portugal
+  pid: PT-TT-CEL-002-544-1_m0001
   y: 25%
   clickable: yes
   height: '500px'
 ---
 
-__Wax__ is a [minimal computing](http://go-dh.github.io/mincomp/) project for producing digital exhibitions focused on longevity, low costs, and flexibility. Our underlying technology is made to learn and to teach, and can produce beautifully rendered, high-quality image collections and scholarly exhibits. To start using Wax, please see our [documentation](https://minicomp.github.io/wiki/#/wax/) for installation instructions and more.
+# Portugal Collection
 
-The collection items in this demo are from The Museum of Islamic Art, Qatar, (courtesy of [WikiMedia](https://commons.wikimedia.org/wiki/Category:Google_Art_Project_works_in_The_Museum_of_Islamic_Art,_Qatar) and [Google Art Project](https://www.google.com/culturalinstitute/about/artproject/)) and The Qatar National Library (via [World Digital Library](https://www.wdl.org/en/)).
+This digital collection presents historical manuscripts documenting slave marriages in 17th century Portugal. These ecclesiastical records, preserved in the Torre do Tombo National Archive, provide crucial insights into the social and legal frameworks surrounding slavery in early modern Portuguese society.
 
-### Browse the Collection
+The documents are organized by collection groups, each representing different fragments of ecclesiastical records from the period.
 
-#### By Item Type
-{% include collection_gallery.html facet_by='object_type' collection='qatar' %}
+## Quick Access
+
+<div class="row">
+  <div class="col-md-4 mb-3">
+    <a href="/collection/" class="btn btn-outline-secondary btn-lg btn-block">
+      <i class="fas fa-th-large"></i> Browse
+    </a>
+  </div>
+  <div class="col-md-4 mb-3">
+    <a href="/search/" class="btn btn-outline-secondary btn-lg btn-block">
+      <i class="fas fa-search"></i> Search
+    </a>
+  </div>
+  <div class="col-md-4 mb-3">
+    <a href="/exhibits/marriage-overview/" class="btn btn-outline-secondary btn-lg btn-block">
+      <i class="fas fa-book"></i> Exhibits
+    </a>
+  </div>
+</div>
+
+## Browse the Collection
+
+### By Collection Group
+
+{% include collection_gallery.html facet_by='collection_name' collection='portugal' %}
+
+### By Record Type
+
+#### Slave Marriage Records
+
+{% include collection_gallery.html facet_by='record_type' only='Slave Marriage Record' collection='portugal' %}
+
+### By Location
+
+#### Lisbon Records
+
+{% include collection_gallery.html facet_by='location' only='Lisbon' collection='portugal' %}
+
+### All Manuscripts
+
+{% include collection_gallery.html facet_by='object_type' only='manuscript' collection='portugal' %}
