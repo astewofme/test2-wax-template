@@ -19,8 +19,8 @@
 
 title:            'Portugal'
 description:      'Historical Manuscripts from 17th Century Portugal'
-url:              'http://localhost:4000'
-baseurl:          ''
+url:              'https://astewofme.github.io'
+baseurl:          '/test2-wax-template'
 copyright:        'Portuguese National Archives, 2024'
 logo:             '/assets/logo.png'
 default_thumb:    '/assets/default.png'
