@@ -19,17 +19,17 @@ The documents are organized by collection groups, each representing different fr
 
 <div class="row">
   <div class="col-md-4 mb-3">
-    <a href="/collection/" class="btn btn-outline-secondary btn-lg btn-block">
+    <a href="{{ '/collection/' | relative_url }}" class="btn btn-outline-secondary btn-lg btn-block">
       <i class="fas fa-th-large"></i> Browse
     </a>
   </div>
   <div class="col-md-4 mb-3">
-    <a href="/search/" class="btn btn-outline-secondary btn-lg btn-block">
+    <a href="{{ '/search/' | relative_url }}" class="btn btn-outline-secondary btn-lg btn-block">
       <i class="fas fa-search"></i> Search
     </a>
   </div>
   <div class="col-md-4 mb-3">
-    <a href="/exhibits/marriage-overview/" class="btn btn-outline-secondary btn-lg btn-block">
+    <a href="{{ '/exhibits/marriage-overview/' | relative_url }}" class="btn btn-outline-secondary btn-lg btn-block">
       <i class="fas fa-book"></i> Exhibits
     </a>
   </div>
