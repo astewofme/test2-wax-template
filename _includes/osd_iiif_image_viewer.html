@@ -4,36 +4,77 @@
 <script>
   $(document).ready(function () {
     var manifestUrl = "{{ include.manifest | absolute_url }}";
+    var baseUrl = "{{ '/' | absolute_url }}";
     console.log('Loading manifest from:', manifestUrl);
+    console.log('Base URL:', baseUrl);
     
     $.getJSON(manifestUrl, function(data) {
       console.log('Manifest loaded:', data);
-      var tileSources = [];
-      $.each(data.sequences[0].canvases, function(_k, val) {
-        var tileSource = val.images[0].resource.service['@id'] + '/info.json';
-        var thumbnailUrl = val.thumbnail['@id'];
-        console.log('Tile source:', tileSource);
-        console.log('Thumbnail URL:', thumbnailUrl);
-        
-        tileSources.push({
-          tileSource: tileSource,
-          referenceStripThumbnailUrl: thumbnailUrl
-        });
-      });
       
-      console.log('Initializing OpenSeadragon with tile sources:', tileSources);
-      OpenSeadragon({
-        id: "osd",
-        preload: true,
-        sequenceMode: true,
-        prefixUrl: "{{ '/assets/openseadragon/images/' | absolute_url }}",
-        tileSources: tileSources,
-        showReferenceStrip: true,
-        showFullPageControl: true,
-        showHomeControl: true,
-        showZoomControl: true,
-        showRotationControl: true,
-        debugMode: false
+      // Load info.json to get tile information
+      var serviceId = data.sequences[0].canvases[0].images[0].resource.service['@id'];
+      if (serviceId.startsWith('/')) {
+        serviceId = baseUrl.replace(/\/$/, '') + serviceId;
+      }
+      var infoUrl = serviceId + '/info.json';
+      console.log('Loading info.json from:', infoUrl);
+      
+      $.getJSON(infoUrl, function(info) {
+        console.log('Info.json loaded:', info);
+        
+        // Create tile sources array
+        var tileSources = [];
+        
+        $.each(data.sequences[0].canvases, function(_k, val) {
+          var canvasServiceId = val.images[0].resource.service['@id'];
+          if (canvasServiceId.startsWith('/')) {
+            canvasServiceId = baseUrl.replace(/\/$/, '') + canvasServiceId;
+          }
+          var canvasImagePath = canvasServiceId.replace(baseUrl.replace(/\/$/, ''), '');
+          
+          var thumbnailUrl = val.thumbnail['@id'];
+          if (thumbnailUrl && thumbnailUrl.startsWith('/')) {
+            thumbnailUrl = baseUrl.replace(/\/$/, '') + thumbnailUrl;
+          }
+          
+          // Use OpenSeadragon's custom tile source format
+          tileSources.push({
+            type: 'custom',
+            height: info.height,
+            width: info.width,
+            tileSize: 512,
+            minLevel: 0,
+            maxLevel: 4,
+            getTileUrl: function(level, x, y) {
+              var tileUrl = canvasImagePath + '/tiles/' + level + '/' + x + '_' + y + '.jpg';
+              console.log('Requesting tile:', tileUrl);
+              return tileUrl;
+            }
+          });
+        });
+        
+        console.log('Initializing OpenSeadragon with custom tile sources');
+        var viewer = OpenSeadragon({
+          id: "osd",
+          prefixUrl: "{{ '/assets/openseadragon/images/' | absolute_url }}",
+          preserveViewport: true,
+          visibilityRatio: 1,
+          minZoomLevel: 0.5,
+          defaultZoomLevel: 0,
+          sequenceMode: tileSources.length > 1,
+          showReferenceStrip: tileSources.length > 1,
+          showNavigator: true,
+          showFullPageControl: true,
+          showHomeControl: true,
+          showZoomControl: true,
+          showRotationControl: true,
+          debugMode: true,
+          tileSources: tileSources
+        });
+        
+        console.log('OpenSeadragon viewer initialized:', viewer);
+      }).fail(function(jqxhr, textStatus, error) {
+        console.error('Failed to load info.json:', textStatus, error);
       });
     }).fail(function(jqxhr, textStatus, error) {
       console.error('Failed to load manifest:', textStatus, error);

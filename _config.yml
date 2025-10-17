@@ -19,7 +19,7 @@
 
 title:            'Portugal'
 description:      'Historical Manuscripts from 17th Century Portugal'
-url:              'https://your-site.com'
+url:              'http://localhost:4000'
 baseurl:          ''
 copyright:        'Portuguese National Archives, 2024'
 logo:             '/assets/logo.png'
