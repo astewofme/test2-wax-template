@@ -13,3 +13,6 @@ Gemfile.lock
 
 # wax things
 wax_tasks
+
+# ignore IIIF derivatives (not using IIIF)
+img/derivatives/iiif/
